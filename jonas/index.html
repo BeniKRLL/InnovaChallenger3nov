@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jones Azeiteiro - Sabores e Tradição</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="./images/logo.png" alt="Jones Azeiteiro Logo" onerror="this.onerror=null; this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23DAA520%22/><text x=%2250%22 y=%2265%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-weight=%22bold%22>JA</text></svg>';">
+                </div>
+                <span class="brand-name">Jones Azeiteiro</span>
+            </div>
+            <div class="cart-icon" onclick="toggleCart()">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Jones Azeiteiro</h1>
+        <p>Sabores e Tradição</p>
+    </section>
+
+    <div class="container" id="produtos">
+        <h2 style="text-align: center; color: #DAA520; font-size: 2.5rem; margin-bottom: 1rem;">Nossos Azeites</h2>
+        <p style="text-align: center; color: #ccc; margin-bottom: 2rem;">Seleção premium de azeites extravirgens</p>
+        
+        <div class="products-grid" id="productsGrid"></div>
+    </div>
+
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCartIfClickedOutside(event)">
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h2>Seu Carrinho</h2>
+                <button class="close-cart" onclick="toggleCart()">×</button>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-total">
+                <h3>Total: <span id="cartTotal">R$ 0,00</span></h3>
+                <button class="checkout-btn" onclick="openPaymentModal()">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-content">
+            <h2>Finalizar Pagamento</h2>
+            <div class="payment-summary">
+                <div id="paymentSummaryItems"></div>
+                <div class="payment-summary-total">
+                    <span>Total:</span>
+                    <span id="paymentTotal">R$ 0,00</span>
+                </div>
+            </div>
+            <div class="payment-form">
+                <div class="form-group">
+                    <label for="customerName">Nome Completo</label>
+                    <input type="text" id="customerName" placeholder="Digite seu nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="paymentCode">Código de Pagamento</label>
+                    <input type="text" id="paymentCode" placeholder="Digite o código (12345)" required>
+                </div>
+            </div>
+            <div class="payment-buttons">
+                <button class="cancel-payment-btn" onclick="closePaymentModal()">Cancelar</button>
+                <button class="confirm-payment-btn" onclick="processPayment()">Confirmar Pagamento</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">✅</div>
+            <h2>Compra Realizada!</h2>
+            <p>Seu pedido foi confirmado com sucesso.</p>
+            <p><strong>Código de confirmação: <span id="confirmationCode"></span></strong></p>
+            <button class="close-success-btn" onclick="closeSuccessModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
