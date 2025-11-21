@@ -1,0 +1,710 @@
+/* === style.css - Design Moderno Rosa/Cinza - TOTALMENTE RESPONSIVO === */
+
+/* reset básico */
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+/* body e layout principal com degradê rosa/roxo escuro */
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #1a0a1e 0%, #2d1b3d 50%, #1f0d28 100%);
+  background-attachment: fixed;
+  color: #e7eef8;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* SIDEBAR */
+#sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 220px;
+  background: rgba(25, 30, 40, 0.95);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  transition: width 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  z-index: 30;
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+#sidebar.closed { 
+  width: 64px; 
+}
+
+#sidebar #toggle-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 22px;
+  padding: 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  width: 100%;
+}
+
+#sidebar #toggle-btn:hover {
+  color: #ff4d7d;
+}
+
+#sidebar ul {
+  list-style: none;
+  margin-top: 20px;
+  padding: 8px 0;
+  width: 100%;
+}
+
+#sidebar li {
+  width: 100%;
+}
+
+#sidebar a {
+  display: block;
+  padding: 14px 20px;
+  color: #b8c5d6;
+  text-decoration: none;
+  border-radius: 8px;
+  margin: 4px 12px;
+  transition: all 0.2s ease;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#sidebar a:hover {
+  background: rgba(255, 77, 125, 0.15);
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+#sidebar a.active { 
+  background: linear-gradient(90deg, rgba(189, 0, 63, 0.3), rgba(189, 0, 63, 0.1));
+  color: #ffffff;
+  border-left: 3px solid #bd003f;
+}
+
+/* HEADER - removido para ficar igual às imagens 2 e 3 */
+header {
+  display: none;
+}
+
+/* ÁREA DE CONTEÚDO PRINCIPAL */
+.container {
+  position: absolute;
+  left: 220px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 40px;
+  overflow: auto;
+  transition: left 0.3s ease;
+}
+
+.container.full { 
+  left: 64px; 
+}
+
+/* CENTRAR CONTEÚDO */
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+/* CAIXA CENTRALIZADA (para login/boas-vindas) */
+.auth-box {
+  background: rgba(40, 50, 65, 0.85);
+  backdrop-filter: blur(20px);
+  padding: 50px 60px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  max-width: 480px;
+  width: 100%;
+}
+
+.auth-box h1 {
+  font-size: clamp(22px, 5vw, 28px);
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.auth-box h2 {
+  font-size: clamp(26px, 6vw, 32px);
+  margin-bottom: 40px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.auth-box p {
+  color: #a8b5c8;
+  margin-bottom: 30px;
+  font-size: clamp(14px, 3vw, 15px);
+}
+
+/* INPUTS */
+.auth-box input {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 20px;
+  background: rgba(20, 25, 35, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: clamp(14px, 3vw, 15px);
+  transition: all 0.3s ease;
+}
+
+.auth-box input::placeholder {
+  color: #6b7785;
+}
+
+.auth-box input:focus {
+  outline: none;
+  border-color: #bd003f;
+  background: rgba(20, 25, 35, 0.8);
+  box-shadow: 0 0 0 3px rgba(189, 0, 63, 0.1);
+}
+
+/* BOTÕES PRINCIPAIS (Cadastrar, Saiba mais) */
+.auth-box button,
+.big-button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #bd003f 0%, #8b0030 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: clamp(14px, 3.5vw, 16px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(189, 0, 63, 0.3);
+  margin-bottom: 15px;
+}
+
+.auth-box button:hover,
+.big-button:hover {
+  background: linear-gradient(135deg, #e0004a 0%, #bd003f 100%);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(189, 0, 63, 0.4);
+}
+
+.auth-box button:active,
+.big-button:active {
+  transform: translateY(-2px) scale(1);
+}
+
+/* Link "Já tenho conta" */
+.auth-box a {
+  color: #ff6b9d;
+  text-decoration: underline;
+  font-size: clamp(13px, 3vw, 14px);
+  display: inline-block;
+  margin-top: 20px;
+  transition: color 0.2s ease;
+}
+
+.auth-box a:hover {
+  color: #ff9bbe;
+}
+
+/* Botão Sair (canto superior direito) */
+.logout-btn {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #bd003f 0%, #8b0030 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(13px, 3vw, 14px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 16px rgba(189, 0, 63, 0.3);
+  z-index: 100;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #e0004a 0%, #bd003f 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(189, 0, 63, 0.4);
+}
+
+/* GRADE DE BOTÕES - versão padrão */
+.button-grid {
+  width: 94%;
+  max-width: 1200px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  justify-items: center;
+  align-items: start;
+}
+
+/* Grade com dois botões grandes */
+.button-grid.two-buttons {
+  gap: clamp(18px, 3vw, 32px);
+  max-width: min(95%, 1100px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  justify-items: stretch;
+  align-items: center;
+}
+
+/* BOTÕES DA GRADE */
+.button-grid .btn {
+  width: 100%;
+  max-width: none;
+  min-height: clamp(110px, 18vh, 160px);
+  border-radius: clamp(12px, 2vw, 18px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(20px, 4vw, 32px);
+  font-weight: 700;
+  font-size: clamp(17px, 3.5vw, 22px);
+  color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45);
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+/* Tamanho especial para classe .big */
+.button-grid .btn.big {
+  font-size: clamp(18px, 4vw, 24px);
+  padding: clamp(24px, 5vw, 36px);
+  min-height: clamp(120px, 20vh, 180px);
+}
+
+/* Sistema de cores dos botões */
+.button-grid .btn:nth-child(1) {
+  background: linear-gradient(90deg, #6b0028 0%, #8b0035 100%);
+  border-color: rgba(107, 0, 40, 0.3);
+}
+
+.button-grid .btn:nth-child(1):hover {
+  background: linear-gradient(90deg, #7d0030 0%, #9d003d 100%);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(107, 0, 40, 0.45);
+}
+
+.button-grid .btn:nth-child(2) {
+  background: linear-gradient(90deg, #a8003f 0%, #bd003f 100%);
+  border-color: rgba(168, 0, 63, 0.3);
+}
+
+.button-grid .btn:nth-child(2):hover {
+  background: linear-gradient(90deg, #ba0047 0%, #cf0047 100%);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(168, 0, 63, 0.45);
+}
+
+/* Fallback para botões primary */
+.button-grid .btn.primary {
+  background: linear-gradient(90deg, #a8003f 0%, #bd003f 100%);
+  border-color: rgba(168, 0, 63, 0.3);
+}
+
+.button-grid .btn.primary:hover {
+  background: linear-gradient(90deg, #ba0047 0%, #cf0047 100%);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(168, 0, 63, 0.45);
+}
+
+.button-grid .btn:active {
+  transform: translateY(-3px) scale(1.01);
+}
+
+/* Texto interno do botão */
+.button-grid .btn span {
+  display: block;
+  padding: 0 12px;
+  line-height: 1.3;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* CAIXA DE TEXTO (PÁGINA PORTFÓLIO) */
+.text-box {
+  max-width: min(95%, 900px);
+  margin: 40px auto;
+  background: rgba(40, 50, 65, 0.7);
+  backdrop-filter: blur(20px);
+  padding: clamp(24px, 5vw, 40px);
+  border-radius: clamp(12px, 2vw, 16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e6f0ff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  font-size: clamp(14px, 3vw, 16px);
+  line-height: 1.6;
+}
+
+/* BOTÃO DE LINK GRANDE */
+.big-button {
+  max-width: min(95%, 600px);
+  aspect-ratio: 16 / 9;
+  font-size: clamp(20px, 4vw, 24px);
+  margin: 0 auto;
+}
+
+/* Scrollbar personalizada */
+.container::-webkit-scrollbar { 
+  width: 10px; 
+}
+
+.container::-webkit-scrollbar-thumb { 
+  background: rgba(189, 0, 63, 0.4);
+  border-radius: 10px; 
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: rgba(189, 0, 63, 0.6);
+}
+
+.container::-webkit-scrollbar-track { 
+  background: rgba(0, 0, 0, 0.2); 
+}
+
+/* Quando sidebar fechado */
+#sidebar.closed a { 
+  opacity: 0; 
+  pointer-events: none; 
+}
+
+#sidebar.closed #toggle-btn {
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* ===================================== */
+/* RESPONSIVIDADE COMPLETA */
+/* ===================================== */
+
+/* Telas muito grandes (2560px+) - 4K */
+@media (min-width: 2560px) {
+  .button-grid.two-buttons {
+    max-width: 1600px;
+    gap: 40px;
+  }
+  
+  .button-grid .btn.big {
+    font-size: 28px;
+    min-height: 220px;
+  }
+  
+  .text-box {
+    max-width: 1400px;
+    font-size: 20px;
+  }
+  
+  .container {
+    padding: 60px;
+  }
+}
+
+/* Telas grandes (1920px - 2559px) - Full HD */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  .button-grid.two-buttons {
+    max-width: 1400px;
+    gap: 36px;
+  }
+  
+  .text-box {
+    max-width: 1200px;
+    font-size: 18px;
+  }
+}
+
+/* Telas médias-grandes (1440px - 1919px) */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .button-grid.two-buttons {
+    max-width: 1200px;
+    gap: 32px;
+  }
+}
+
+/* Telas médias (1024px - 1439px) - Tablets landscape e laptops pequenos */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .button-grid.two-buttons {
+    max-width: 900px;
+    gap: 24px;
+  }
+  
+  .container {
+    padding: 32px;
+  }
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #sidebar {
+    width: 64px;
+  }
+  
+  #sidebar.closed {
+    width: 220px;
+  }
+  
+  #sidebar.closed a {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .container {
+    left: 64px;
+    padding: 28px;
+  }
+  
+  .container.full {
+    left: 220px;
+  }
+  
+  .button-grid.two-buttons {
+    max-width: 700px;
+    gap: 20px;
+  }
+  
+  .button-grid .btn.big {
+    font-size: 20px;
+    min-height: 130px;
+  }
+  
+  .auth-box {
+    padding: 40px 32px;
+  }
+}
+
+/* Smartphones landscape e tablets pequenos (600px - 767px) */
+@media (min-width: 600px) and (max-width: 767px) {
+  #sidebar {
+    width: 64px;
+  }
+  
+  .container {
+    left: 64px;
+    padding: 24px;
+  }
+  
+  .button-grid.two-buttons {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    gap: 16px;
+  }
+  
+  .button-grid .btn,
+  .button-grid .btn.big {
+    min-height: 110px;
+    font-size: 18px;
+  }
+  
+  .auth-box {
+    padding: 36px 28px;
+    max-width: 90%;
+  }
+  
+  .logout-btn {
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+  }
+}
+
+/* Smartphones portrait (480px - 599px) */
+@media (min-width: 480px) and (max-width: 599px) {
+  #sidebar {
+    width: 64px;
+  }
+  
+  .container {
+    left: 64px;
+    padding: 20px;
+  }
+  
+  .button-grid.two-buttons {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    gap: 14px;
+  }
+  
+  .button-grid .btn,
+  .button-grid .btn.big {
+    min-height: 100px;
+    padding: 18px;
+    font-size: 17px;
+  }
+  
+  .auth-box {
+    padding: 32px 24px;
+    max-width: 92%;
+  }
+  
+  .center-content {
+    padding: 24px 16px;
+  }
+}
+
+/* Smartphones pequenos (320px - 479px) */
+@media (max-width: 479px) {
+  #sidebar {
+    width: 64px;
+  }
+  
+  .container {
+    left: 64px;
+    padding: 16px;
+  }
+  
+  .button-grid,
+  .button-grid.two-buttons {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 12px;
+  }
+  
+  .button-grid .btn,
+  .button-grid .btn.big {
+    min-height: 90px;
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+  
+  .auth-box {
+    padding: 28px 20px;
+    max-width: 95%;
+    border-radius: 16px;
+  }
+  
+  .auth-box h1 {
+    font-size: 20px;
+  }
+  
+  .auth-box h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .auth-box input {
+    padding: 14px;
+    font-size: 14px;
+  }
+  
+  .auth-box button {
+    padding: 14px;
+    font-size: 15px;
+  }
+  
+  .logout-btn {
+    top: 12px;
+    right: 12px;
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  
+  .center-content {
+    padding: 20px 12px;
+  }
+  
+  .text-box {
+    padding: 20px;
+    font-size: 14px;
+  }
+}
+
+/* Telas muito pequenas (< 320px) - Galaxy Fold fechado */
+@media (max-width: 319px) {
+  #sidebar {
+    width: 56px;
+  }
+  
+  .container {
+    left: 56px;
+    padding: 12px;
+  }
+  
+  .button-grid .btn,
+  .button-grid .btn.big {
+    min-height: 80px;
+    padding: 14px;
+    font-size: 14px;
+  }
+  
+  .auth-box {
+    padding: 24px 16px;
+  }
+}
+
+/* Modo paisagem em smartphones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .center-content {
+    padding: 16px 12px;
+    min-height: auto;
+  }
+  
+  .button-grid .btn,
+  .button-grid .btn.big {
+    min-height: 80px;
+    padding: 14px;
+  }
+  
+  .auth-box {
+    padding: 24px 28px;
+    margin: 16px 0;
+  }
+  
+  .auth-box h2 {
+    margin-bottom: 20px;
+  }
+  
+  .auth-box input {
+    margin-bottom: 12px;
+    padding: 12px;
+  }
+}
+
+/* Ajustes para acessibilidade - motion reduced */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  #sidebar,
+  .logout-btn {
+    display: none;
+  }
+  
+  .container {
+    left: 0;
+    padding: 0;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+}
