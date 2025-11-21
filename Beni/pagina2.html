@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Link</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Segredos Secretos</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
+
 <body>
+
   <nav id="sidebar">
-    <button id="toggle-btn" onclick="toggleMenu()">☰</button>
+    <button id="toggle-btn">☰</button>
     <ul>
       <li><a href="index.html">Início</a></li>
       <li><a href="pagina1.html">Portfólio</a></li>
@@ -20,10 +23,13 @@
     <h1>Link</h1>
   </header>
 
-  <main class="container">
-    <button class="link-button" onclick="abrirLink()">Abrir YouTube</button>
-  </main>
+  <div class="container center-content">
 
-  <script src="script.js"></script>
+    <button class="btn primary big-button" onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ','_blank')">
+      Pode não man, é segredo 🤫
+    </button>
+
+  </div>
+
 </body>
 </html>

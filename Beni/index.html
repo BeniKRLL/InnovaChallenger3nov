@@ -1,38 +1,39 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Início</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página Inicial</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
+
 <body>
+  <!-- SIDEBAR -->
   <nav id="sidebar">
-    <button id="toggle-btn" onclick="toggleMenu()">☰</button>
+    <button id="toggle-btn">☰</button>
     <ul>
       <li><a href="index.html" class="active">Início</a></li>
       <li><a href="pagina1.html">Portfólio</a></li>
-      <li><a href="pagina2.html">Link</a></li>
+      <li><a href="pagina2.html">Segredos Secretos</a></li>
     </ul>
   </nav>
 
+  <!-- HEADER -->
   <header>
     <h1>Página Inicial</h1>
   </header>
 
-  <main class="container">
-    <div class="button-grid">
-      <button onclick="irPara('pagina1.html')">Portfólio</button>
-      <button onclick="irPara('pagina2.html')">Link</button>
-      <button>Botao</button>
-      <button>Botao</button>
-      <button>Botao</button>
-      <button>Botao</button>
-      <button>Botao</button>
-      <button>Botao</button>
+  <!-- CONTEÚDO -->
+  <div class="container">
+    <div class="center-content">
+      <div class="button-grid two-buttons">
+        <!-- Dois botões grandes e destacados -->
+        <a href="pagina1.html" class="btn primary big"><span>Portfólio temporário</span></a>
+        <a href="pagina2.html" class="btn primary big"><span>Segredos Secretos</span></a>
+      </div>
     </div>
-  </main>
-
-  <script src="script.js"></script>
+  </div>
 </body>
 </html>
