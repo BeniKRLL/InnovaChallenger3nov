@@ -1,0 +1,253 @@
+/* Definição de Variáveis de Cores */
+:root {
+    --cor-principal: #FFC0CB; /* Rosa Bebê (Marca) */
+    --cor-secundaria: #8B4513; /* Marrom (Texto/Rodapé) */
+    --cor-fundo: #FFF8E1; /* Creme Claro (Fundo Principal) */
+    --cor-destaque: #FFEBCD; /* Bege Almofadado (Fundo de Seções) */
+    --cor-texto: #333333; /* Cinza Escuro para Leitura */
+    --cor-botao-pedido: #4CAF50; /* Verde (Ação Principal) */
+    --cor-botao-carrinho: #007bff; /* Azul (Ação Secundária) */
+}
+
+/* Reset Básico e Fontes */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+/* Estrutura do Conteúdo */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 0;
+}
+
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--cor-destaque);
+}
+
+h2 {
+    text-align: center;
+    color: var(--cor-secundaria);
+    margin-bottom: 40px;
+    font-size: 2.2em;
+}
+
+/* Cabeçalho e Navegação */
+header {
+    background-color: var(--cor-principal);
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 3em;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Seção Hero (Início) */
+.hero {
+    background-color: var(--cor-destaque);
+    text-align: center;
+    padding: 80px 0;
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-position: center; /* Centraliza a imagem */
+    color: white; /* Para o texto do hero ficar visível sobre a imagem */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para o texto */
+    min-height: 400px; /* Altura mínima para o banner */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero h2 {
+    color: white; /* Corrigido para branco */
+}
+
+/* Botões de Ação Comuns */
+.cta-button, .btn-acao {
+    display: inline-block;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.1s;
+    cursor: pointer;
+    border: none;
+}
+
+.cta-button {
+    background-color: var(--cor-principal);
+}
+
+.btn-pedido {
+    background-color: var(--cor-botao-pedido);
+}
+
+.btn-carrinho {
+    background-color: var(--cor-botao-carrinho);
+}
+
+.cta-button:hover, .btn-acao:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Cards de Produto */
+.produto-card {
+    background-color: white;
+    border: 1px solid var(--cor-principal);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    text-align: center; /* Centraliza conteúdo do card */
+}
+
+.produto-card h3 a {
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.produto-card h3 a:hover {
+    color: var(--cor-principal);
+}
+
+/* Estilo para Imagens de Produto */
+.produto-img {
+    max-width: 100%; /* Garante que a imagem não saia do card */
+    height: 200px; /* Altura fixa para uniformizar os cards */
+    object-fit: cover; /* Corta a imagem para preencher o espaço */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 2px solid var(--cor-destaque);
+}
+
+/* Detalhes do Produto e Formulário (Checkout/Pedido) */
+.detalhes-pagina {
+    background-color: var(--cor-destaque);
+}
+
+.detalhes-produto {
+    background-color: var(--cor-fundo);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+.detalhes-produto label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.detalhes-produto input[type="text"],
+.detalhes-produto input[type="number"],
+.detalhes-produto textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.detalhes-produto input[type="submit"] {
+    margin-top: 25px;
+    width: 100%;
+    padding: 15px;
+}
+
+.detalhe-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain; /* Ajusta a imagem sem cortar muito */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 3px solid var(--cor-principal);
+}
+
+.quem-somos-img {
+    display: block; /* Para centralizar com margin auto */
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    margin: 30px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Carrinho Simulado */
+#carrinho .simulacao {
+    background-color: white;
+    padding: 20px;
+    border: 2px dashed var(--cor-principal);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--cor-secundaria);
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+/* Media Queries para Responsividade Básica */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+    nav ul li {
+        margin: 5px 0;
+    }
+    .hero {
+        min-height: 300px;
+    }
+}
