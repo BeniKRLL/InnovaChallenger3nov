@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delícia Açucarada 🍰 - Sabores de Família</title>
+    
+    <style>
+        /* Definição de Variáveis de Cores */
+        :root {
+            --cor-principal: #FFC0CB; /* Rosa Bebê (Marca) */
+            --cor-secundaria: #8B4513; /* Marrom (Texto/Rodapé) */
+            --cor-fundo: #FFF8E1; /* Creme Claro (Fundo Principal) */
+            --cor-destaque: #FFEBCD; /* Bege Almofadado (Fundo de Seções) */
+            --cor-texto: #333333; /* Cinza Escuro para Leitura */
+            --cor-botao-pedido: #4CAF50; /* Verde (Ação Principal) */
+            --cor-botao-carrinho: #007bff; /* Azul (Ação Secundária) */
+        }
+
+        /* Reset Básico e Fontes */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+
+        /* Estrutura do Conteúdo */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px 0;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--cor-destaque);
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--cor-secundaria);
+            margin-bottom: 40px;
+            font-size: 2.2em;
+        }
+
+        /* Cabeçalho e Navegação */
+        header {
+            background-color: var(--cor-principal);
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 3em;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Seção Hero (Início) - Sem Background Image */
+        .hero {
+            background-color: var(--cor-principal); /* Usando a cor principal como fundo */
+            text-align: center;
+            padding: 80px 0;
+            color: white; 
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+            min-height: 250px; /* Altura reduzida já que não há imagem */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .hero h2 {
+            color: white; 
+        }
+
+        /* Botões de Ação Comuns */
+        .cta-button, .btn-acao {
+            display: inline-block;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background-color 0.3s, transform 0.1s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button {
+            background-color: var(--cor-secundaria); /* Mudando a cor para contraste */
+        }
+
+        .btn-pedido {
+            background-color: var(--cor-botao-pedido);
+        }
+
+        .btn-carrinho {
+            background-color: var(--cor-botao-carrinho);
+        }
+
+        .cta-button:hover, .btn-acao:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Cards de Produto */
+        .produto-card {
+            background-color: white;
+            border: 1px solid var(--cor-principal);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            text-align: center; 
+        }
+
+        .produto-card h3 a {
+            color: var(--cor-secundaria);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .produto-card h3 a:hover {
+            color: var(--cor-principal);
+        }
+
+        /* Apenas um espaço para onde a imagem estava */
+        .produto-placeholder {
+            height: 50px; 
+            background-color: var(--cor-destaque);
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cor-secundaria);
+            font-weight: bold;
+        }
+
+        /* Detalhes do Produto e Formulário (Checkout/Pedido) */
+        .detalhes-pagina {
+            background-color: var(--cor-destaque);
+        }
+
+        .detalhes-produto {
+            background-color: var(--cor-fundo);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        .detalhes-produto label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .detalhes-produto input[type="text"],
+        .detalhes-produto input[type="number"],
+        .detalhes-produto textarea,
+        .detalhes-produto input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        /* Ajuste para input file, que tem layout diferente */
+        .detalhes-produto input[type="file"] {
+            padding: 5px; 
+        }
+
+        .detalhes-produto input[type="submit"] {
+            margin-top: 25px;
+            width: 100%;
+            padding: 15px;
+        }
+
+        .quem-somos-placeholder {
+            display: block; 
+            max-width: 80%;
+            height: 150px;
+            background-color: var(--cor-principal);
+            border-radius: 10px;
+            margin: 30px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Carrinho Simulado */
+        #carrinho .simulacao {
+            background-color: white;
+            padding: 20px;
+            border: 2px dashed var(--cor-principal);
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        /* Lista de itens no carrinho */
+        #carrinho .simulacao ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        /* Fim de Estilos Específicos do Carrinho */
+
+        /* Rodapé */
+        footer {
+            background-color: var(--cor-secundaria);
+            color: white;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        /* Media Queries para Responsividade Básica */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 5px 0;
+            }
+            .hero {
+                min-height: 200px;
+            }
+        }
+    </style>
+    </head>
+<body>
+    <header>
+        <h1>Delícia Açucarada 🍰</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#cardapio">Cardápio</a></li>
+                <li><a href="#carrinho">🛒 Carrinho</a></li> 
+                <li><a href="#quemsomos">Quem Somos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Sabores de Família.</h2>
+            <p>A Doçura que Traz Conforto e Alegria.</p>
+            <p>Confeitaria artesanal com a tradição das receitas da vovó Teresinha.</p>
+            <a href="#cardapio" class="cta-button">Ver Cardápio Completo ➡️</a>
+        </div>
+    </section>
+
+    <section id="cardapio" class="container">
+        <h2>📋 Nosso Cardápio Principal</h2>
+        
+        <div class="produto-card">
+            <div class="produto-placeholder">Bolo de Cenoura (Foto Aqui)</div>
+            <h3>Bolo de Cenoura com Cobertura de Chocolate Belga</h3>
+            <p>Massa fofinha de cenoura, com a inconfundível e cremosa cobertura de brigadeiro feito com chocolate belga.</p>
+            <p><strong>Preço:</strong> R$ 55,00 (tamanho padrão)</p>
+            <a href="#carrinho" class="btn-acao btn-pedido">🛒 Adicionar ao Carrinho</a> 
+        </div>
+
+        <div class="produto-card">
+            <div class="produto-placeholder">Bolo de Laranja (Foto Aqui)</div>
+            <h3><a href="#detalhes-laranja">Bolo de Laranja com Calda Caramelizada</a></h3> 
+            <p>O clássico que começou tudo. Simples, úmido e irresistível, com um toque cítrico perfeito.</p>
+            <p><strong>Preço:</strong> R$ 45,00 (tamanho padrão)</p>
+            <a href="#detalhes-laranja" class="btn-acao btn-pedido">Ver Detalhes e Pedir</a>
+        </div>
+    </section>
+    
+    <section id="detalhes-laranja" class="container detalhes-pagina">
+        <h2>🍊 Bolo de Laranja com Calda Caramelizada</h2>
+        <div class="detalhes-produto">
+            <div class="produto-placeholder" style="height: 100px;">Bolo de Laranja Detalhe (Foto Aqui)</div>
+            <h3>Seu Pedido Especial</h3>
+            <p>Este é o nosso carro-chefe! Bolo úmido de laranja, feito com suco da fruta e finalizado com uma calda de açúcar caramelizada na hora.</p>
+            
+            <p><strong>Preço:</strong> R$ 45,00</p>
+            
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade" name="quantidade" value="1" min="1" style="width: 50px;"><br><br>
+            
+            <a href="#carrinho" class="btn-acao btn-carrinho" id="btn-add-laranja">🛒 Adicionar ao Carrinho</a>
+        </div>
+    </section>
+    
+    <section id="carrinho" class="container">
+        <h2>🛒 Meu Carrinho de Compras (Simulação)</h2>
+        <p>Esta seção simula o seu carrinho de compras. Adicione múltiplos itens e use o botão deletar.</p>
+        
+        <div class="simulacao">
+            <p style="color: gray;">O carrinho está vazio. Adicione um produto!</p>
+            <p style="border-top: 2px solid var(--cor-principal); padding-top: 15px; margin-top: 15px;">
+                <strong>Subtotal (R$):</strong> 0,00
+            </p>
+        </div>
+        
+        <p style="text-align: right; margin-top: 20px;">
+            <a href="#checkout" class="btn-acao btn-pedido">Finalizar Compra (Checkout) ➡️</a>
+        </p>
+    </section>
+    
+    <section id="checkout" class="container detalhes-pagina">
+        <h2>💳 Finalizar Compra (Checkout)</h2>
+        <p id="checkout-status" style="text-align: center; margin-bottom: 20px;">
+            Preencha seus dados para prosseguir para o pagamento.
+        </p>
+
+        <form id="form-delivery" class="detalhes-produto">
+            <h3>Dados para Entrega/Retirada</h3>
+            <label for="nome_c">Nome Completo:</label>
+            <input type="text" id="nome_c" name="nome_c" required>
+            
+            <label for="endereco">Endereço de Entrega (ou Retirada):</label>
+            <textarea id="endereco" name="endereco" rows="2" required></textarea>
+            
+            <input type="submit" value="Prosseguir para o Pagamento" class="btn-acao btn-pedido">
+        </form>
+
+        <div id="payment-step" class="detalhes-produto" style="display: none;">
+            <h3>Selecione o Método de Pagamento 💳</h3>
+            
+            <div style="margin-bottom: 20px;">
+                <label>
+                    <input type="radio" name="payment_method" value="cartao" checked> Cartão de Crédito/Débito (Simulação)
+                </label><br>
+                <label>
+                    <input type="radio" name="payment_method" value="dinheiro"> Dinheiro (Pagamento na Entrega/Retirada)
+                </label><br>
+                <label>
+                    <input type="radio" name="payment_method" value="pix"> PIX (Pagamento Imediato - Simulação)
+                </label>
+            </div>
+
+            <div id="payment-fields">
+                <div id="cartao-fields">
+                    <h4>Informações do Cartão</h4>
+                    <label for="card_num">Número do Cartão:</label>
+                    <input type="text" id="card_num" placeholder="XXXX XXXX XXXX XXXX" required>
+                    
+                    <label for="card_name">Nome no Cartão:</label>
+                    <input type="text" id="card_name" required>
+                    
+                    <div style="display: flex; gap: 15px;">
+                        <div style="flex-grow: 1;">
+                            <label for="card_exp">Validade:</label>
+                            <input type="text" id="card_exp" placeholder="MM/AA" required>
+                        </div>
+                        <div style="flex-grow: 1;">
+                            <label for="card_cvv">CVV:</label>
+                            <input type="text" id="card_cvv" placeholder="123" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dinheiro-fields" style="display: none;">
+                    <h4>Pagamento na Entrega/Retirada</h4>
+                    <p style="background-color: var(--cor-destaque); padding: 15px; border-radius: 5px;">
+                        ✅ O valor total do pedido será pago no momento da entrega ou retirada.
+                    </p>
+                    <label for="troco">Precisa de troco para quanto? (Opcional):</label>
+                    <input type="text" id="troco" placeholder="Ex: R$ 50,00">
+                </div>
+                
+                <div id="pix-fields" style="display: none;">
+                    <h4>Pagamento por PIX</h4>
+                    <p style="background-color: var(--cor-destaque); padding: 15px; border-radius: 5px;">
+                        Copie a chave PIX abaixo e efetue o pagamento do valor total.
+                    </p>
+                    <p style="font-weight: bold; text-align: center; border: 1px dashed var(--cor-secundaria); padding: 10px;">
+                        Chave PIX (Simulada): 999.999.999-99 (CNPJ)
+                    </p>
+                    <label for="pix_comprovante">Anexar Comprovante (Opcional):</label>
+                    <input type="file" id="pix_comprovante">
+                </div>
+            </div>
+            
+            <button class="btn-acao btn-pedido" id="btn-finalizar-pagamento">Confirmar Pagamento</button>
+        </div>
+
+        <div id="confirmation-message" class="detalhes-produto" style="display: none; background-color: #e6ffe6; border: 2px solid var(--cor-botao-pedido);">
+            <h3>✅ Compra Realizada com Sucesso!</h3>
+            <p>Seu pedido foi processado e **está sendo preparado** com todo o carinho da Teresinha.</p>
+            <p>Em breve você receberá atualizações sobre a entrega no e-mail ou WhatsApp fornecido.</p>
+            <a href="#home" class="btn-acao cta-button" style="background-color: var(--cor-secundaria);">Voltar ao Início</a>
+        </div>
+    </section>
+
+    <section id="quemsomos" class="container">
+        <h2>👩‍🍳 Quem Somos</h2>
+        <p>A <strong>Delícia Açucarada</strong> é a realização do sonho da <strong>Teresinha</strong>, que há mais de 30 anos adoça a família e os amigos com suas receitas. Nosso pilar é a autenticidade e o carinho.</p>
+        <p>Acreditamos que a confeitaria deve ter sabor de aconchego. Por isso, recusamos misturas prontas e ingredientes industrializados. Nossos doces são feitos do zero, garantindo aquele toque caseiro que só a Teresinha sabe dar.</p>
+        <div class="quem-somos-placeholder">Espaço da Foto da Teresinha</div>
+    </section>
+
+    <section id="contato" class="container">
+        <h2>📞 Contato & Encomendas</h2>
+        <p><strong>Para Bolos de Festa (Personalizados):</strong> Pedimos um prazo mínimo de 5 dias úteis.</p>
+        <p><strong>Para Doces e Bolos Clássicos:</strong> Prazo mínimo de 24 horas.</p>
+        
+        <h3>Fale Conosco:</h3>
+        <p><strong>Telefone/WhatsApp:</strong> (XX) 9XXXX-XXXX</p>
+        <p><strong>E-mail:</strong> teresinha@deliciaacucarada.com</p>
+
+        <form class="detalhes-produto" id="form-contato">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="pedido">Detalhes da Mensagem/Pedido:</label>
+            <textarea id="pedido" name="pedido" rows="4" required></textarea>
+            
+            <input type="submit" value="Enviar Mensagem (Apenas Demonstração)" class="btn-acao cta-button">
+        </form>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Delícia Açucarada - Todos os direitos reservados.</p>
+    </footer>
+    
+    <script src="script.js" defer></script> 
+    </body>
+</html>
